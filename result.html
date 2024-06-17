@@ -1,0 +1,143 @@
+<style>
+    section {
+        display: flex;
+        padding-left: 30px;
+        font-size: 28px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .recommendation-card {
+        display: none;
+        background-color: #f4f4f4;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .recommendation-card h2 {
+        color: #333;
+    }
+
+    .recommendation-card p {
+        color: #666;
+    }
+
+    div {
+        width: 50%;
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Prediction</title>
+
+</head>
+
+<body>
+    <h1>Prediction</h1>
+    <hr>
+    <div class="Pred">
+        <h2>{{ prediction_text }}</h2>
+    </div>
+    <section>
+
+
+        <div class="Tips">
+            <h1>Some customized tips:</h1> <br>
+            <div class="recommendation-card" id="card1">
+                <h2>0-Anxiety Level</h2>
+                <p>{{ recommendation_anxiety }}</p>
+            </div>
+            <div class="recommendation-card" id="card2">
+                <h2>1-Self-Esteem</h2>
+                <p>{{ recommendation_self_esteem }}</p>
+            </div>
+            <div class="recommendation-card" id="card3">
+                <h2>2-Depression</h2>
+                <p>{{ recommendation_depression }}</p>
+            </div>
+
+            <div class="recommendation-card" id="card4">
+                <h2>3-Blood pressure</h2>
+                <p>{{ recommendation_blood_pressure }}</p>
+            </div>
+
+            <div class="recommendation-card" id="card5">
+                <h2>4-Sleep quality</h2>
+                <p>{{ recommendation_sleep_quality }}</p>
+            </div>
+            <div class="recommendation-card" id="card6">
+                <h2>5-Safety</h2>
+                <p>{{ recommendation_safety }}</p>
+            </div>
+
+            <div class="recommendation-card" id="card7">
+                <h2>6-Basic needs</h2>
+                <p>{{ recommendation_basic_needs }}</p>
+            </div>
+
+            <div class="recommendation-card" id="card8">
+                <h2>7-Teacher-student_relationship</h2>
+                <p>{{ recommendation_teacher_student_relationship }}</p>
+            </div>
+
+            <div class="recommendation-card" id="card9">
+                <h2>8-Career concerns</h2>
+                <p>{{ recommendation_future_career_concerns }}</p>
+            </div>
+
+            <div class="recommendation-card" id="card10">
+                <h2>9-Social support</h2>
+                <p>{{ recommendation_social_support }}</p>
+            </div>
+
+            <div class="recommendation-card" id="card11">
+                <h2>10-Extra-curricular activities</h2>
+                <p>{{ recommendation_extracurricular_activities }}</p>
+            </div>
+
+            <div class="recommendation-card" id="card12">
+                <h2>11-Bullying</h2>
+                <p>{{ recommendation_bullying }}</p>
+            </div>
+
+            <div class="recommendation-card" id="card12">
+                <h2>12-Bullying</h2>
+                <p>{{ recommendation_bullying }}</p>
+            </div>
+            <button onclick="showNextCard()">Show next tip</button>
+        </div>
+        <div class="chart">
+            {{ chart_html|safe }}
+
+        </div>
+    </section>
+
+    <script>
+        var currentCard = 1;
+        var totalCards = 12;
+
+        function showNextCard() {
+            var currentCardElement = document.getElementById('card' + currentCard);
+            currentCardElement.style.display = 'none';
+
+            currentCard = (currentCard % totalCards) + 1;
+
+            var nextCardElement = document.getElementById('card' + currentCard);
+            nextCardElement.style.display = 'block';
+        }
+
+        // Show the first card initially
+        document.getElementById('card1').style.display = 'block';
+    </script>
+</body>
+
+</html>

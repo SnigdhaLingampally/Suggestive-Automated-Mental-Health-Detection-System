@@ -1,0 +1,249 @@
+<style>
+    h1 {
+
+        text-align: center;
+
+    }
+
+    body {
+        background-image: url('https://img.freepik.com/free-photo/abstract-digital-grid-black-background_53876-97647.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705622400&semt=ais');
+        padding-left: 90px;
+        padding-right: 90px;
+
+    }
+
+    .Heading {
+        color: white;
+        border-top: 5 px;
+        height: 15%;
+        font-size: 18px;
+        padding-top: 7px;
+        letter-spacing: 1px;
+        word-spacing: 5px;
+    }
+
+    form {
+
+        background-color: rgb(255, 255, 255);
+
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    form>div {
+        padding: 7px;
+    }
+
+    div>select {
+        width: 20%;
+        height: 4%;
+        background-color: rgb(236, 244, 252);
+    }
+
+    button {
+        background-color: rgb(255, 255, 255);
+        font-style: bold;
+        color: rgb(3, 0, 0);
+        height: 30px;
+        width: 120px;
+    }
+
+    button:hover {
+        background-color: rgb(214, 208, 208);
+    }
+
+    select {
+        font-size: 15px;
+    }
+
+    div>label {
+        color: black;
+        font-size: 20px;
+    }
+</style>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Survey form</title>
+
+    <script src="C:\Users\keert\Microsoft VS Code Workspaces\Hackathon\pickle\pkl.pkl.pkl"></script>
+</head>
+
+<body>
+    <div class="Heading">
+        <h1><b>SURVEY FORM FOR MENTAL DISORDERS DETECTION</b></h1>
+        <hr>
+    </div>
+
+    <form action="{{ url_for('predict')}}" method="post">
+        <div class="form">
+            <label id="anxiety_level">How often do you feel anxious?</label>
+            <br>
+            <select for="anxiety_level" name="anxiety_level" required>
+                <option value="" selected disabled>Select</option>
+                <option value="0">0-Never</option>
+                <option value="1">1-Slightly</option>
+                <option value="2">2-Moderately</option>
+                <option value="3">3-Quite</option>
+                <option value="4">4-Very anxious</option>
+                <option value="5">5-Extremely</option>
+            </select>
+        </div>
+        <div class="form">
+            <label id="self_esteem">How do you generally perceive your own self-worth and value?</label>
+            <br>
+            <select for="self_esteem" name="self_esteem" required>
+                <option value="" selected disabled>Select</option>
+                <option value="0">0-Very low</option>
+                <option value="1">1-low</option>
+                <option value="2">2-somewhat low</option>
+                <option value="3">3-somewhat high</option>
+                <option value="4">4-High</option>
+                <option value="5">5-Very high</option>
+            </select>
+        </div>
+        <div class="form">
+            <label id="depression">How often have you experienced symptoms such as persistent sadness, lack of interest
+                or pleasure in activities or feelings of hopelessness?</label>
+            <br>
+            <select for="depression" name="depression" required>
+                <option value="" selected disabled>Select</option>
+                <option value="0">0-Never</option>
+                <option value="1">1-Mildly</option>
+                <option value="2">2-Moderately</option>
+                <option value="3">3-Quite</option>
+                <option value="4">4-very depressed</option>
+                <option value="5">5-Extremely</option>
+            </select>
+        </div>
+        <div class="form">
+            <label id="blood_pressure">How do you rate your blood pressure?
+            </label>
+            <br>
+            <select for="blood_pressure" name="blood_pressure" required>
+                <option value="" selected disabled>Select</option>
+                <option value="1">1-low</option>
+                <option value="2">2-medium</option>
+                <option value="3">3-high</option>
+            </select>
+        </div>
+        <div class="form">
+            <label id="sleep_quality">How would you rate the quality of your sleep?</label>
+            <br>
+            <select for="sleep_quality" name="sleep_quality" required>
+                <option value="" selected disabled>Select</option>
+                <option value="0">0-very poor</option>
+                <option value="1">1-poor</option>
+                <option value="2">2-Average</option>
+                <option value="3">3-Good</option>
+                <option value="4">4-Very Good</option>
+                <option value="5">5-Excellent</option>
+            </select>
+        </div>
+        <div class="form">
+            <label id="safety">How safe and secure do you currently feel in your day-to-day life?</label>
+            <br>
+            <select for="safety" name="safety" required>
+                <option value="" selected disabled>Select</option>
+                <option value="0">0-Not at all</option>
+                <option value="1">1-Somewhat safe</option>
+                <option value="2">2-Neutral</option>
+                <option value="3">3-Somewhat safe</option>
+                <option value="4">4-Safe</option>
+                <option value="5">5-Very safe</option>
+
+            </select>
+        </div>
+        <div class="form">
+            <label id="basic_needs">Does your financial situation meet your basic needs?</label>
+            <br>
+            <select for="basic_needs" name="basic_needs" required>
+                <option value="" selected disabled>Select</option>
+                <option value="0">0-Not at all</option>
+                <option value="1">1-Barely</option>
+                <option value="2">2-partially</option>
+                <option value="3">3-Mostly</option>
+                <option value="4">4-Fully met</option>
+                <option value="5">5-Thats not a problem</option>
+
+            </select>
+        </div>
+        <div class="form">
+            <label id="teacher_student_relationship">How comfortable enough to share your worries with your
+                teacher?</label>
+            <br>
+            <select for="teacher_student_relationship" name="teacher_student_relationship" required>
+                <option value="" selected disabled>Select</option>
+                <option value="0">0-very uncomfortable </option>
+                <option value="1">1-uncomfortable</option>
+                <option value="2">2-Neutral</option>
+                <option value="3">3-comfortable</option>
+                <option value="4">4-very comfortable</option>
+                <option value="5">5-Extremely comfortable</option>
+            </select>
+        </div>
+        <div class="form">
+            <label id="future_career_concerns">How concerned are you about your future career prospects and
+                stability,considering your current academic path?</label>
+            <br>
+            <select for="future_career_concerns" name="future_career_concerns" required>
+                <option value="" selected disabled>Select</option>
+                <option value="0">0-Never</option>
+                <option value="1">1-Slightly</option>
+                <option value="2">2-Moderately</option>
+                <option value="3">3-Quite</option>
+                <option value="4">4-very Concerned</option>
+                <option value="5">5-Extremely</option>
+            </select>
+        </div>
+        <div class="form">
+            <label id="social_support">Do your family and friends support your decisions?</label>
+            <br>
+            <select for="social_support" name="social_support" required>
+                <option value="" selected disabled>Select</option>
+                <option value="0">0-Never</option>
+                <option value="1">1-very rarely</option>
+                <option value="2">2-rarely</option>
+                <option value="3">3-Always</option>
+
+            </select>
+        </div>
+        <div class="form">
+            <label id="extracurricular_activities">Are you involved in any extracurricular activities, and if so, rate
+                their contribution towards your mental health?</label>
+            <br>
+            <select for="extracurricular_activities" name="extracurricular_activities" required>
+                <option value="" selected disabled>Select</option>
+                <option value="0">0-Not involved</option>
+                <option value="1">1-Very low</option>
+                <option value="2">2-low</option>
+                <option value="3">3-moderate</option>
+                <option value="4">4-high</option>
+                <option value="5">5-very high</option>
+            </select>
+        </div>
+        <div class="form">
+            <label id="bullying">Have you experienced bullying,if so, how badly did it affect your mental
+                health?</label>
+            <br>
+            <select for="bullying" name="bullying" required>
+                <option value="" selected disabled>Select</option>
+                <option value="0">0-Not bullied</option>
+                <option value="1">1-Minimal impact</option>
+                <option value="2">2-slight impact</option>
+                <option value="3">3-Moderate impact</option>
+                <option value="4">4-Significant impact</option>
+                <option value="5">5-Severe impact</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button></p>
+    </form>
+
+</body>
+
+</html>
